@@ -13,6 +13,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "CircleSigil",
+                    "type": "Button",
+                    "id": "6655fb6c-80de-453f-985d-713e7783ced8",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -70,6 +79,17 @@
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "f0c0ab9c-4097-4ae9-af6c-9945f299621a",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";PC",
+                    "action": "CircleSigil",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
