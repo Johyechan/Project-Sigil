@@ -32,7 +32,7 @@ namespace Game.Enemy
         // 공격 함수
         public void Attack()
         {
-            GameObject core = CheckArea.CheckCircle(_self.position, _attackDistance, Vector2.zero, 0, "Core");
+            GameObject core = CheckArea.CheckObjectInCircle(_self.position, _attackDistance, Vector2.zero, 0, "Core");
             _hit = core.GetComponent<IHit>();
 
             _coroutine = _behaviour.StartCoroutine(AttackCo());

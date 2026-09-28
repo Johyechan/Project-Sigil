@@ -58,10 +58,10 @@ namespace Util.Pool
 
         private GameObject ResetObject(GameObject obj)
         {
+            obj.SetActive(false);
             obj.transform.position = Vector3.zero;
             obj.transform.rotation = Quaternion.identity;
             obj.transform.parent = transform;
-            obj.SetActive(false);
             return obj;
         }
 
@@ -95,4 +95,4 @@ namespace Util.Pool
         }
     }
 }
-// 마지막 작성 일자: 2026.09.21
+// 마지막 작성 일자: 2026.09.28

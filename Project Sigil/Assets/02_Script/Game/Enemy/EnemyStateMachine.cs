@@ -1,3 +1,4 @@
+using UnityEngine;
 using Util.FSM;
 using Util.FSM.Interface;
 
@@ -39,30 +40,33 @@ namespace Game.Enemy
             _stateMachine.Init(_idleState);
         }
 
-        public void Execute()
+        private void ChangeState(IState state)
         {
             // 현재 상태가 사망 상태라면
-            if(_stateMachine.CurrentState == _dieState)
+            if (_stateMachine.CurrentState == _dieState)
             {
                 return;
             }
-            else // 사망 상태가 아니라면
+
+            _stateMachine.ChangeState(state);
+        }
+
+        public void Execute()
+        {
+            if (_health.IsDie()) // 체력이 사망 상태라고 판단했다면
             {
-                if(_health.IsDie()) // 체력이 사망 상태라고 판단했다면
-                {
-                    _stateMachine.ChangeState(_dieState); // 현재 상태를 사망 상태로 전환
-                }
+                ChangeState(_dieState); // 현재 상태를 사망 상태로 전환
             }
 
             // 멈춰야 한다면
             if (_movement.ShouldAttack())
             {
                 // 기본 상태로 변경
-                _stateMachine.ChangeState(_attackState);
+                ChangeState(_attackState);
             }
             else // 멈추지 않아도 된다면
             {
-                _stateMachine.ChangeState(_moveState);
+                ChangeState(_moveState);
             }
 
             _stateMachine.Execute(); // 현재 상태에서 매 프레임 실행되어야 하는 코드를 가지는 함수
@@ -70,9 +74,9 @@ namespace Game.Enemy
 
         public void Hit(int damage)
         {
-            _stateMachine.ChangeState(_hitState);
+            ChangeState(_hitState);
             _health.Hit(damage);
         }
     }
 }
-// 마지막 작성 일자: 2026.09.21
+// 마지막 작성 일자: 2026.09.28

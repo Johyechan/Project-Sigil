@@ -8,6 +8,7 @@ namespace Game.Sigil
     {
         None = 0,
         Circle = 1,
+        Triangle = 2,
     }
 }
-// 마지막 작성 일자: 2026.09.21
+// 마지막 작성 일자: 2026.09.23

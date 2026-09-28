@@ -13,6 +13,8 @@ namespace Game.Player
     {
         // 원 문양 데이터
         [SerializeField] private CircleSigilScriptableObject _circleSigilData;
+        // 삼각형 문양 데이터
+        [SerializeField] private TriangleSigilScriptableObject _triangleSigilData;
 
         // 사용할 인풋 에셋
         [SerializeField] private InputActionAsset _playerInputActionAsset;
@@ -45,7 +47,7 @@ namespace Game.Player
             _playerMovement = new PlayerMovement(transform, _speed);
             _playerInput = new PlayerInput(_playerInputActionAsset);
             _playerInput.Init();
-            _playerAttack = new PlayerAttack(_circleSigilData, transform);
+            _playerAttack = new PlayerAttack(_circleSigilData, _triangleSigilData, transform);
             _playerAttack.Init();
 
             _idleState = new PlayerIdleState();
@@ -89,4 +91,4 @@ namespace Game.Player
         }
     }
 }
-// 마지막 작성 일자: 2026.09.21
+// 마지막 작성 일자: 2026.09.23

@@ -16,16 +16,23 @@ namespace Game.Player
         private ISigil _currentSigil; 
         // 원 문양
         private ISigil _circleSigil;
+        // 삼각형 문양
+        private ISigil _triangleSigil;
 
+        // 현재 문양 데이터
+        private SigilScriptableObject _currentSigilData;
         // 원 문양 데이터
         private CircleSigilScriptableObject _circleSigilData;
+        // 삼각형 문양 데이터
+        private TriangleSigilScriptableObject _triangleSigilData;
 
         // 플레이어 자기 자신
         private Transform _self;
 
-        public PlayerAttack(CircleSigilScriptableObject circleSigilData, Transform self)
+        public PlayerAttack(CircleSigilScriptableObject circleSigilData, TriangleSigilScriptableObject triangleSigilData, Transform self)
         {
             _circleSigilData = circleSigilData;
+            _triangleSigilData = triangleSigilData;
             _self = self;
         }
 
@@ -33,6 +40,7 @@ namespace Game.Player
         public void Init()
         {
             _circleSigil = new CircleSigil();
+            _triangleSigil = new TriangleSigil();
             _isAttacking = false;
         }
 
@@ -43,16 +51,21 @@ namespace Game.Player
             {
                 case SigilType.Circle:
                     _currentSigil = _circleSigil;
+                    _currentSigilData = _circleSigilData;
+                    break;
+                case SigilType.Triangle:
+                    _currentSigil = _triangleSigil;
+                    _currentSigilData = _triangleSigilData;
                     break;
             }
         }
 
         public IEnumerator DrawSigil(MonoBehaviour behaviour)
         {
-            yield return behaviour.StartCoroutine(_currentSigil.DrawSigil(_circleSigilData, _self));
+            yield return behaviour.StartCoroutine(_currentSigil.DrawSigil(_currentSigilData, _self));
 
             _isAttacking = false;
         }
     }
 }
-// 마지막 작성 일자: 2026.09.21
+// 마지막 작성 일자: 2026.09.28

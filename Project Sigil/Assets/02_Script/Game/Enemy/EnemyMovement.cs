@@ -33,7 +33,7 @@ namespace Game.Enemy
         // 공격해야하는지 확인하는 함수
         public bool ShouldAttack()
         {
-            return CheckArea.CheckCircle(_self.position, _attackDistance, Vector2.zero, 0, "Core") != null;
+            return CheckArea.CheckObjectInCircle(_self.position, _attackDistance, Vector2.zero, 0, "Core") != null;
         }
     }
 }
