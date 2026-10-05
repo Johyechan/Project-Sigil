@@ -11,6 +11,9 @@ namespace Game.Player
     // 플레이어 행동 제어 클래스
     public class PlayerController : MonoBehaviour
     {
+        // 코어
+        [SerializeField] private Transform _core;
+
         // 원 문양 데이터
         [SerializeField] private CircleSigilScriptableObject _circleSigilData;
         // 삼각형 문양 데이터
@@ -23,6 +26,8 @@ namespace Game.Player
         [SerializeField] private float _sigilWaitTime;
         // 이동 속도
         [SerializeField] private float _speed;
+        // 코어와 떨어질 수 있는 최대 거리
+        [SerializeField] private float _maxDistance;
 
         // 플레이어 이동 클래스
         private PlayerMovement _playerMovement;
@@ -44,7 +49,7 @@ namespace Game.Player
 
         private void Awake()
         {
-            _playerMovement = new PlayerMovement(transform, _speed);
+            _playerMovement = new PlayerMovement(transform, _core, _speed, _maxDistance);
             _playerInput = new PlayerInput(_playerInputActionAsset);
             _playerInput.Init();
             _playerAttack = new PlayerAttack(_circleSigilData, _triangleSigilData, transform);
@@ -91,4 +96,4 @@ namespace Game.Player
         }
     }
 }
-// 마지막 작성 일자: 2026.09.23
+// 마지막 작성 일자: 2026.09.30
