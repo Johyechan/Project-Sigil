@@ -2,7 +2,7 @@ using UnityEngine;
 
 // 작성자: 조혜찬
 // 삼각형 문양 데이터
-[CreateAssetMenu(fileName = "TriangleSigilData", menuName = "Game/Sigil/Triangle Sigil Data")]
+[CreateAssetMenu(fileName = "TriangleSigilData", menuName = "Game/Sigil/Triangle Sigil Data", order = 1)]
 public class TriangleSigilScriptableObject : SigilScriptableObject
 {
     [SerializeField] private int underBulletCount; // 밑 변 총알 개수

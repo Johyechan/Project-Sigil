@@ -18,6 +18,8 @@ namespace Game.Player
         private ISigil _circleSigil;
         // 삼각형 문양
         private ISigil _triangleSigil;
+        // 사각형 문양
+        private ISigil _squareSigil;
 
         // 현재 문양 데이터
         private SigilScriptableObject _currentSigilData;
@@ -25,14 +27,17 @@ namespace Game.Player
         private CircleSigilScriptableObject _circleSigilData;
         // 삼각형 문양 데이터
         private TriangleSigilScriptableObject _triangleSigilData;
+        // 사각형 문양 데이터
+        private SquareSigilScriptableObject _squareSigilData;
 
         // 플레이어 자기 자신
         private Transform _self;
 
-        public PlayerAttack(CircleSigilScriptableObject circleSigilData, TriangleSigilScriptableObject triangleSigilData, Transform self)
+        public PlayerAttack(CircleSigilScriptableObject circleSigilData, TriangleSigilScriptableObject triangleSigilData, SquareSigilScriptableObject squareSigilData, Transform self)
         {
             _circleSigilData = circleSigilData;
             _triangleSigilData = triangleSigilData;
+            _squareSigilData = squareSigilData;
             _self = self;
         }
 
@@ -41,6 +46,7 @@ namespace Game.Player
         {
             _circleSigil = new CircleSigil();
             _triangleSigil = new TriangleSigil();
+            _squareSigil = new SquareSigil();
             _isAttacking = false;
         }
 
@@ -57,6 +63,10 @@ namespace Game.Player
                     _currentSigil = _triangleSigil;
                     _currentSigilData = _triangleSigilData;
                     break;
+                case SigilType.Square:
+                    _currentSigil = _squareSigil;
+                    _currentSigilData = _squareSigilData;
+                    break;
             }
         }
 
@@ -68,4 +78,4 @@ namespace Game.Player
         }
     }
 }
-// 마지막 작성 일자: 2026.09.28
+// 마지막 작성 일자: 2026.10.06

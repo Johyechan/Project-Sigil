@@ -2,7 +2,7 @@ using UnityEngine;
 
 // 작성자: 조혜찬
 // 문양 데이터
-[CreateAssetMenu(fileName = "CircleSigilData", menuName = "Game/Sigil/Circle Sigil Data")]
+[CreateAssetMenu(fileName = "CircleSigilData", menuName = "Game/Sigil/Circle Sigil Data", order = 0)]
 public class CircleSigilScriptableObject : SigilScriptableObject
 {
     [SerializeField] private float delay;
