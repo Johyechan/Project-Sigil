@@ -20,6 +20,8 @@ namespace Game.Player
         private ISigil _triangleSigil;
         // 사각형 문양
         private ISigil _squareSigil;
+        // 마름모 문양
+        private ISigil _rhombusSigil;
 
         // 현재 문양 데이터
         private SigilScriptableObject _currentSigilData;
@@ -29,15 +31,18 @@ namespace Game.Player
         private TriangleSigilScriptableObject _triangleSigilData;
         // 사각형 문양 데이터
         private SquareSigilScriptableObject _squareSigilData;
+        // 마름모 문양 데이터
+        private RhombusSigilScriptableObject _rhombusSigilData;
 
         // 플레이어 자기 자신
         private Transform _self;
 
-        public PlayerAttack(CircleSigilScriptableObject circleSigilData, TriangleSigilScriptableObject triangleSigilData, SquareSigilScriptableObject squareSigilData, Transform self)
+        public PlayerAttack(CircleSigilScriptableObject circleSigilData, TriangleSigilScriptableObject triangleSigilData, SquareSigilScriptableObject squareSigilData, RhombusSigilScriptableObject rhombusSigilData, Transform self)
         {
             _circleSigilData = circleSigilData;
             _triangleSigilData = triangleSigilData;
             _squareSigilData = squareSigilData;
+            _rhombusSigilData = rhombusSigilData;
             _self = self;
         }
 
@@ -47,6 +52,7 @@ namespace Game.Player
             _circleSigil = new CircleSigil();
             _triangleSigil = new TriangleSigil();
             _squareSigil = new SquareSigil();
+            _rhombusSigil = new RhombusSigil();
             _isAttacking = false;
         }
 
@@ -67,6 +73,10 @@ namespace Game.Player
                     _currentSigil = _squareSigil;
                     _currentSigilData = _squareSigilData;
                     break;
+                case SigilType.Rhombus:
+                    _currentSigil = _rhombusSigil;
+                    _currentSigilData = _rhombusSigilData;
+                    break;
             }
         }
 
@@ -78,4 +88,4 @@ namespace Game.Player
         }
     }
 }
-// 마지막 작성 일자: 2026.10.06
+// 마지막 작성 일자: 2026.10.07

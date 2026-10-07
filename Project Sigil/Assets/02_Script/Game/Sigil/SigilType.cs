@@ -10,6 +10,7 @@ namespace Game.Sigil
         Circle = 1,
         Triangle = 2,
         Square = 3,
+        Rhombus = 4,
     }
 }
-// 마지막 작성 일자: 2026.09.23
+// 마지막 작성 일자: 2026.10.07
