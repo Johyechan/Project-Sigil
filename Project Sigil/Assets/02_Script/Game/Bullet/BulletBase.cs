@@ -13,6 +13,15 @@ namespace Game.Bullet
         private Coroutine _fireCo; // 발사 코루틴
         private Coroutine _lifeTimeCo; // 생명 시간 코루틴
 
+        private Collider2D _collider;
+
+        // 활성화 시
+        protected virtual void OnEnable()
+        {
+            _collider = GetComponent<Collider2D>();
+            _collider.enabled = false; // 콜라이더를 비활성화하여 문양을 그릴 때 적들에게 충돌되는 것을 방지
+        }
+
         protected virtual void OnDisable()
         {
             // 발사 및 생명 시간 코루틴이 null이 아닐 때 정지
@@ -31,6 +40,7 @@ namespace Game.Bullet
         // 총알 발사 함수
         public void Fire(Vector3 direction, float speed)
         {
+            _collider.enabled = true; // 총알을 발사하는 시점에는 적들과 충돌될 수 있도록 활성화
             _fireCo = StartCoroutine(FireCo(direction, speed));
             _lifeTimeCo = StartCoroutine(LifeTimeCo());
         }
@@ -50,4 +60,4 @@ namespace Game.Bullet
         protected abstract void OnTriggerEnter2D(Collider2D collision);
     }
 }
-// 마지막 작성 일자: 2026.09.21
+// 마지막 작성 일자: 2026.10.09

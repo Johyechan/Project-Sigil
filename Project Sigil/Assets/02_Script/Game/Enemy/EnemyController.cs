@@ -43,6 +43,7 @@ namespace Game.Enemy
         private void OnEnable()
         {
             _machine.Init();
+            _health.Init(); // 적 체력 초기화
         }
 
         private void Update()
@@ -56,4 +57,4 @@ namespace Game.Enemy
         }
     }
 }
-// 마지막 작성 일자: 2026.09.21
+// 마지막 작성 일자: 2026.10.09

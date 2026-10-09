@@ -7,10 +7,18 @@ namespace Game.Enemy
     public class EnemyHealth
     {
         private int _currentHp; // 현재 체력
+        private int _maxHp; // 최대 체력
 
         public EnemyHealth(int maxHp)
         {
-            _currentHp = maxHp;
+            _maxHp = maxHp;
+        }
+
+        // 초기화 함수
+        public void Init()
+        {
+            // 현재 체력을 최대 체력으로 초기화
+            _currentHp = _maxHp;
         }
 
         // 맞았을 때 함수
@@ -27,4 +35,4 @@ namespace Game.Enemy
         }
     }
 }
-// 마지막 작성 일자: 2026.09.21
+// 마지막 작성 일자: 2026.10.09

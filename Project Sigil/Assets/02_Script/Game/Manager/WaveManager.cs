@@ -46,15 +46,18 @@ namespace Game.Manager
 
                     Vector3 createPos = new Vector3(Mathf.Cos(radian), Mathf.Sin(radian)) * _distance; // 랜덤한 각도 * 멀어져야하는 거리
 
-                    GameObject enemy = ObjectPool.Instance.GetObject(PoolType.SquareEnemy); // 적 생성
+                    GameObject enemy = ObjectPool.Instance.GetObject(PoolType.SquareEnemy, transform); // 적 생성
                     enemy.transform.position = _core.position + createPos; // 코어 위치를 기준으로 적 생성 위치로 이동
                     enemy.SetActive(true); // 적 활성화
                     yield return new WaitForSeconds(_createDelay);
+                    currentCreateEnemyCount++;
                 }
-                _createEnemyCount += _waveIncreaseValue;
-                yield return new WaitForSeconds(_restTime);
+                // 이번 웨이브에 생성한 적들이 전부 죽을 때까지 대기
+                yield return new WaitUntil(() => transform.childCount == 0);
+                _createEnemyCount += _waveIncreaseValue; // 웨이브에 등장하는 적 수 증가
+                yield return new WaitForSeconds(_restTime); // 휴식
             }
         }
     }
 }
-// 마지막 작성 일자: 2026.10.02
+// 마지막 작성 일자: 2026.10.09

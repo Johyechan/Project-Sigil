@@ -1094,7 +1094,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1017235867
 Transform:
   m_ObjectHideFlags: 0
@@ -1125,7 +1125,7 @@ MonoBehaviour:
   _core: {fileID: 1199376190}
   _distance: 7
   _createDelay: 1
-  _restTime: 10
+  _restTime: 5
   _createEnemyCount: 10
   _waveIncreaseValue: 2
 --- !u!1 &1199376188

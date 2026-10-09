@@ -56,15 +56,17 @@ namespace Util.Pool
             }
         }
 
+        // 객체 초기화 함수
         private GameObject ResetObject(GameObject obj)
         {
-            obj.SetActive(false);
-            obj.transform.position = Vector3.zero;
-            obj.transform.rotation = Quaternion.identity;
-            obj.transform.parent = transform;
+            obj.SetActive(false); // 객체 비활성화
+            obj.transform.position = Vector3.zero; // 객체 위치 (0, 0, 0)으로 초기화
+            obj.transform.rotation = Quaternion.identity; // 회전 값을 (0, 0, 0, 1)으로 초기화
+            obj.transform.SetParent(transform); // 현재 스크립트를 가지는 객체를 부모로 지정
             return obj;
         }
 
+        // 객체 생성
         private GameObject CreateObject(PoolType type)
         {
             GameObject obj = Instantiate(_poolMap[type].obj, transform);
@@ -74,13 +76,14 @@ namespace Util.Pool
         // 풀 객체 꺼내기 함수
         public GameObject GetObject(PoolType type, Transform parent = null)
         {
+            // type 풀에 객체가 있을 경우
             if (_pool[type].Count > 0)
             {
                 GameObject obj = _pool[type].Dequeue();
                 obj.transform.parent = parent;
                 return obj;
             }
-            else
+            else // type 풀에 객체가 없을 경우
             {
                 GameObject obj = CreateObject(type);
                 obj.transform.parent = parent;
@@ -95,4 +98,4 @@ namespace Util.Pool
         }
     }
 }
-// 마지막 작성 일자: 2026.09.28
+// 마지막 작성 일자: 2026.10.09

@@ -1,3 +1,4 @@
+using Game.Bullet;
 using System.Collections;
 using UnityEngine;
 using Util.Pool;
@@ -48,14 +49,20 @@ namespace Game.Sigil
                     // 플레이어 위치를 기준으로 시작점과 끝점 사이의 t 비율에 해당하는 위치를 구해 총알 위치로 설정
                     Vector3 pos = parent.position + Vector3.Lerp(startPos, endPos, t);
 
-                    GameObject bullet = ObjectPool.Instance.GetObject(PoolType.NormalBullet);
+                    GameObject bullet = ObjectPool.Instance.GetObject(PoolType.NormalBullet, parent);
                     bullet.transform.position = pos;
                     bullet.SetActive(true);
 
                     yield return new WaitForSeconds(data.Delay);
                 }
             }
+
+            for(int i = 0; i < parent.childCount; i++)
+            {
+                BulletBase bullet = parent.GetChild(i).GetComponent<BulletBase>(); // 플레이어 자식으로 있는 총알 가져오기
+                bullet.Fire(Vector3.zero, 0);
+            }
         }
     }
 }
-// 마지막 작성 일자: 2026.10.06
+// 마지막 작성 일자: 2026.10.09
