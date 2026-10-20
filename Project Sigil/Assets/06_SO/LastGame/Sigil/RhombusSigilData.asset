@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: RhombusSigilData
   m_EditorClassIdentifier: 
   bulletCount: 0
-  bulletSpeed: 1
+  bulletSpeed: 4
   topToLeftStartPos: {x: 0, y: 1.5, z: 0}
   topToLeftEndPos: {x: -1.5, y: 0, z: 0}
   leftToBottomStartPos: {x: -1.5, y: 0, z: 0}
@@ -23,4 +23,4 @@ MonoBehaviour:
   rightToTopStartPos: {x: 1.5, y: 0, z: 0}
   rightToTopEndPos: {x: 0, y: 1.5, z: 0}
   lineBulletCount: 5
-  delay: 0.5
+  delay: 0.1

@@ -681,7 +681,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -904,7 +904,7 @@ MonoBehaviour:
   _rhombusSigilData: {fileID: 11400000, guid: f55441cedfdecb54f85d163c7c6cac8d, type: 2}
   _playerInputActionAsset: {fileID: -944628639613478452, guid: 70c481d7a7b107443bfa8eca5c0a8bdb, type: 3}
   _sigilWaitTime: 1
-  _speed: 1
+  _speed: 2
   _maxDistance: 5
 --- !u!58 &709922943
 CircleCollider2D:
@@ -1123,7 +1123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _core: {fileID: 1199376190}
-  _distance: 7
+  _distance: 25
   _createDelay: 1
   _restTime: 5
   _createEnemyCount: 10
