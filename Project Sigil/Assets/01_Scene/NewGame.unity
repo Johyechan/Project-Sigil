@@ -172,6 +172,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _progress: {fileID: 722087514}
   _leftDistanceText: {fileID: 1343328835}
+  _speed: 22
+  _timeScale: 6
+  _totalDistance: 1000
 --- !u!1 &25676341
 GameObject:
   m_ObjectHideFlags: 0
@@ -380,6 +383,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _progress: {fileID: 1847753099}
   _leftDistanceText: {fileID: 740078664}
+  _speed: 24
+  _timeScale: 6
+  _totalDistance: 1000
 --- !u!1 &169514258
 GameObject:
   m_ObjectHideFlags: 0
@@ -539,6 +545,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _progress: {fileID: 1846913253}
   _leftDistanceText: {fileID: 589504501}
+  _speed: 20
+  _timeScale: 6
+  _totalDistance: 1000
 --- !u!1 &218419666
 GameObject:
   m_ObjectHideFlags: 0
@@ -3287,6 +3296,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _progress: {fileID: 1497403650}
   _leftDistanceText: {fileID: 1382343991}
+  _speed: 21.5
+  _timeScale: 6
+  _totalDistance: 1000
 --- !u!1 &1340245569
 GameObject:
   m_ObjectHideFlags: 0
@@ -5342,6 +5354,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _progress: {fileID: 1858622853}
   _leftDistanceText: {fileID: 861971608}
+  _speed: 21
+  _timeScale: 6
+  _totalDistance: 1000
 --- !u!1 &2111914721
 GameObject:
   m_ObjectHideFlags: 0
@@ -5431,6 +5446,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _progress: {fileID: 531025349}
   _leftDistanceText: {fileID: 1670226198}
+  _speed: 25
+  _timeScale: 6
+  _totalDistance: 1000
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -12,25 +12,28 @@ namespace Game
         [SerializeField] private Slider _progress; // 진행률 슬라이더
         [SerializeField] private TMP_Text _leftDistanceText; // 남은 거리 텍스트
 
-        private SpeedCalculateHandler _speedCalculateHandler;
-        private LeftDistanceCalculateHandler _leftDistanceCalculateHandler;
-        private ProgressCalculateHandler _progressCalculateHandler;
+        // 임시 변수들
+        [SerializeField] private float _speed; // 속력
+        [SerializeField] private float _timeScale; // 시간 배율
+        [SerializeField] private float _totalDistance; // 총 거리
+
+        private MovementCalculatorHandler _movementCalculatorHandler;
+        private RaceProgressCalculatorHandler _raceProgressCalculatorHandler;
 
         private void Awake()
         {
-            _speedCalculateHandler = new SpeedCalculateHandler();
-            _leftDistanceCalculateHandler = new LeftDistanceCalculateHandler();
-            _progressCalculateHandler = new ProgressCalculateHandler();
+            _movementCalculatorHandler = new MovementCalculatorHandler(_timeScale, _speed);
+            _raceProgressCalculatorHandler = new RaceProgressCalculatorHandler(_totalDistance);
         }
 
         private void Update()
         {
-            // 현재 속도
-            float currentSpeed = _speedCalculateHandler.GetSpeed();
+            // 이동 거리
+            float currentMoveDistance = _movementCalculatorHandler.GetMoveDistance();
 
-            _progress.value += _progressCalculateHandler.ProgressIncreaseValue(currentSpeed);
-            _leftDistanceText.text = $"{_leftDistanceCalculateHandler.GetLeftDistance(currentSpeed)}m";
+            _progress.value = _raceProgressCalculatorHandler.ProgressIncreaseValue(currentMoveDistance);
+            _leftDistanceText.text = $"{_raceProgressCalculatorHandler.GetLeftDistance()}m";
         }
     }
 }
-// 마지막 작성 일자: 2026.11.17
+// 마지막 작성 일자: 2026.11.18
