@@ -6,8 +6,8 @@ using UnityEngine.UI;
 namespace Game
 {
     // 작성자: 조혜찬
-    // 달리기 선수 메인 클래스
-    public class Runner : MonoBehaviour
+    // 달리기 선수 진행 상황 메인 클래스
+    public class RunnerProgress : MonoBehaviour
     {
         [SerializeField] private Slider _progress; // 진행률 슬라이더
         [SerializeField] private TMP_Text _leftDistanceText; // 남은 거리 텍스트
@@ -36,4 +36,4 @@ namespace Game
         }
     }
 }
-// 마지막 작성 일자: 2026.11.18
+// 마지막 작성 일자: 2026.11.19
